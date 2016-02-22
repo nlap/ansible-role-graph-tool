@@ -19,7 +19,7 @@ Role Variables
 
 By default this role installs graph-tool for Python 3 only.
 
-You install graph-tool on different Python versions with these variables:
+You can install graph-tool on different Python versions with these variables:
 
 	graph_tool_python2: true
 	graph_tool_python3: true

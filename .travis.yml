@@ -7,7 +7,6 @@ dist: trusty
 
 env:
   - ANSIBLE_VERSION=latest
-  - ANSIBLE_VERSION=1.6
 
 branches:
   only:
