@@ -30,6 +30,8 @@ Example Playbook
 ----------------
 
     - hosts: servers
+      become: yes
+      become_method: sudo
       roles:
          - role: nlap.graph_tool
 
