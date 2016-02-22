@@ -33,8 +33,8 @@
 
 - name: install graph-tool for python2
   include: python2.yml
-  when: graph-tool_python2
+  when: graph_tool_python2
 
 - name: install graph-tool for python3
   include: python3.yml
-  when: graph-tool_python3
+  when: graph_tool_python3
