@@ -13,7 +13,7 @@
   apt: pkg={{item}} state=present
   with_items:
     - expat
-    - sparsehash
+    - libsparsehash-dev
     - libboost-all-dev
     - graphviz
     - build-essential
