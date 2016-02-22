@@ -1,0 +1,23 @@
+---
+galaxy_info:
+  author: Nathan Lapierre
+  description: A role to install Graph-tool (http://graph-tool.skewed.de) for Python
+  license: GPLv3
+  min_ansible_version: 1.6
+  platforms:
+    - name: Ubuntu
+      versions:
+        - trusty
+        - utopic
+        - vivid
+        - wily
+    - name: Debian
+      versions:
+        - jessie
+        - stretch
+        - sid
+
+  categories:
+    - development
+
+dependencies: []

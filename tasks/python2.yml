@@ -1,0 +1,11 @@
+- name: installating python2 dependencies
+  apt: pkg={{item}} state=present
+  with_items:
+  - python-dev
+  - python-matplotlib
+  - python-cairo
+  - python-scipy
+  - python-numpy
+
+- name: installating graph-tool for python2
+  apt: pkg=python-graph-tool force=yes state=present

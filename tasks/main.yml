@@ -1,0 +1,40 @@
+---
+- name: including os dependency
+  include_vars: "{{ ansible_distribution }}.yml"
+
+- name: install graph-tool trusty build dependency
+  when: ansible_distribution_release == 'trusty'
+  apt_repository: repo='ppa:ubuntu-toolchain-r/test' state=present
+
+- name: updating apt cache
+  apt: update_cache=yes
+
+- name: install graph-tool dependencies
+  apt: pkg={{item}} state=present
+  with_items:
+    - expat
+    - sparsehash
+    - libboost-all-dev
+    - graphviz
+    - build-essential
+    - libcairo2-dev
+    - gfortran
+    - libopenblas-dev
+    - liblapack-dev
+    - libcgal-dev
+
+- name: adding graph-tool public key
+  apt_key: keyserver=pgp.skewed.de id=98507F25
+
+- name: adding graph-tool repository
+  apt_repository: repo='deb http://downloads.skewed.de/apt/{{ansible_distribution_release}} {{ansible_distribution_release}} {{graph_tool_os}}' state=present
+- name: adding graph-tool source repository
+  apt_repository: repo='deb-src http://downloads.skewed.de/apt/{{ansible_distribution_release}} {{ansible_distribution_release}} {{graph_tool_os}}' state=present
+
+- name: install graph-tool for python2
+  include: python2.yml
+  when: graph-tool_python2
+
+- name: install graph-tool for python3
+  include: python3.yml
+  when: graph-tool_python3
